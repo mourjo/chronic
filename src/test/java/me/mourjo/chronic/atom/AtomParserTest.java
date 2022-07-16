@@ -80,6 +80,8 @@ class AtomParserTest {
         checkUnexpectedAtom(p, "*-*");
         checkUnexpectedAtom(p, "*/*");
         checkUnexpectedAtom(p, "*h*");
+
+        checkUnexpectedAtom(p, "5-6, 8-10");
     }
 
     private void checkUnexpectedAtom(AtomParser p, String atom) {

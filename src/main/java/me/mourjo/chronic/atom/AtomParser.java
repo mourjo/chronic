@@ -67,6 +67,10 @@ public class AtomParser {
         int stars = 0, divs = 0;
         for (int i = 0; i < atom.length(); i++) {
             char ch = atom.charAt(i);
+            if (isUnexpectedCharacter(ch)) {
+                throw new UnexpectedAtomException("Invalid character: " + ch);
+            }
+
             if (ch == '*' && ++stars > 1) {
                 throw new UnexpectedAtomException("Only one '*' is allowed");
             }
@@ -99,10 +103,10 @@ public class AtomParser {
                     throw new UnexpectedAtomException("Range invalid, from and two must be integers");
                 }
             }
-
-            if ((ch < '0' || ch > '9') && ch != '-' && ch != '*' && ch != '/' && ch != ',') {
-                throw new UnexpectedAtomException("Invalid character: " + ch);
-            }
         }
+    }
+
+    private boolean isUnexpectedCharacter(char ch) {
+        return (ch < '0' || ch > '9') && ch != '-' && ch != '*' && ch != '/' && ch != ',';
     }
 }
