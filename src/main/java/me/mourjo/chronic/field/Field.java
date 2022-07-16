@@ -1,8 +1,11 @@
 package me.mourjo.chronic.field;
 
-public abstract sealed class Field permits Command, DayOfMonth, DayOfWeek, Hour, Minute, Month {
+import me.mourjo.chronic.atom.AtomParser;
+
+public abstract sealed class Field permits Command, NumberField {
     protected String token;
     protected boolean isParsed = false;
+    protected AtomParser parser;
 
     public Field(String token) {
         this.token = token;

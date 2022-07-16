@@ -1,18 +1,10 @@
 package me.mourjo.chronic.field;
 
-public final class Hour extends Field {
+import me.mourjo.chronic.atom.AtomParser;
+
+public final class Hour extends NumberField {
     public Hour(String token) {
         super(token);
-    }
-
-    @Override
-    public void parse() {
-        isParsed = true;
-    }
-
-    @Override
-    public String toString() {
-        parse();
-        return super.toString();
+        parser = new AtomParser(1, 24);
     }
 }

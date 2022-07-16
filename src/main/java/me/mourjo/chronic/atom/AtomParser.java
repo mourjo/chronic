@@ -14,7 +14,7 @@ public class AtomParser {
     final Pattern COMMA = Pattern.compile(",");
     final Pattern DASH = Pattern.compile("-");
 
-    AtomParser(int min, int max) {
+    public AtomParser(int min, int max) {
         MIN = min;
         MAX = max;
     }

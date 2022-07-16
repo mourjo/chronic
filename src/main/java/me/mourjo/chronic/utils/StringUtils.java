@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class StringUtils {
     private static final Pattern atomSplitter = Pattern.compile("\\s+");
+
     public static List<String> tokenize(String expression) {
         // currently, does not support command args
         return Arrays.stream(atomSplitter.split(expression.trim(), 8))
