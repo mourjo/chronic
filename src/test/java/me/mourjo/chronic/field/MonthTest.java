@@ -3,7 +3,8 @@ package me.mourjo.chronic.field;
 import me.mourjo.chronic.exceptions.UnexpectedAtomException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MonthTest {
 
