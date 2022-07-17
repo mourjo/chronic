@@ -8,6 +8,15 @@ import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * Parses any numeric cron sub-expression like: hour, minute
+ * Checks syntax of a cron string and generates a sequence of numbers according to the given bounds (min/max).
+ *
+ * Note:
+ * - `?` is not supported
+ * - Special time strings like `@yearly` are not supported
+ * - `,` is given the highest priority, so `/` when applied to a comma-separated string, the `/` applies only to the last item in the list, example: `1-5,11-15/5` will choose 1,2,3,4,5,15
+ */
 public class NumericParser {
     final int MIN, MAX;
     final Pattern SLASH = Pattern.compile("/");

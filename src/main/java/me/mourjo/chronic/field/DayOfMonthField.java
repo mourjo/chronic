@@ -2,6 +2,9 @@ package me.mourjo.chronic.field;
 
 import me.mourjo.chronic.parser.NumericParser;
 
+/**
+ * Parses and stores a DayOfMonth
+ */
 public final class DayOfMonthField extends NumericField {
     public DayOfMonthField(String token) {
         super(token);

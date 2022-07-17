@@ -2,6 +2,9 @@ package me.mourjo.chronic.field;
 
 import me.mourjo.chronic.parser.NumericParser;
 
+/**
+ * Parses and stores a DayOfWeek
+ */
 public final class DayOfWeekField extends NumericField {
     public DayOfWeekField(String token) {
         super(token);

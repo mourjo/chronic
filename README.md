@@ -53,7 +53,7 @@ Command: /usr/bin/find abcd
 - Only minute, hour, day of month, month, and day of week are supported
 - `?` is not supported
 - Special time strings like `@yearly` are not supported
-- `,` is given the higest priority, so `/` when applied to a comma-separated string, the `/` applies only to the last item in the list, example: `1-5,11-15/5` will choose 1,2,3,4,5,15
+- `,` is given the highest priority, so `/` when applied to a comma-separated string, the `/` applies only to the last item in the list, example: `1-5,11-15/5` will choose 1,2,3,4,5,15
 
 
 

@@ -2,6 +2,9 @@ package me.mourjo.chronic.field;
 
 import me.mourjo.chronic.parser.NumericParser;
 
+/**
+ * Parses and stores a Minute
+ */
 public final class MinuteField extends NumericField {
     public MinuteField(String token) {
         super(token);

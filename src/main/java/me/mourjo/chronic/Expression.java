@@ -6,6 +6,9 @@ import me.mourjo.chronic.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Parses and contains all fields in a cron expression.
+ */
 final public class Expression {
     final private List<Field> fields;
     final private String rawExpression;
@@ -16,6 +19,11 @@ final public class Expression {
         fields = new ArrayList<>();
     }
 
+    /**
+     * Parses the raw expression by tokenizing the expression and calling each subexpression's corresponding Field implementation.
+     * <p>
+     * Parsing is lazy. Until parsed is called, the raw expression is not consumed. Once parsed, calling parse again is a no-op.
+     */
     public void parse() {
         if (!isParsed) {
             List<String> tokens = StringUtils.tokenize(rawExpression);

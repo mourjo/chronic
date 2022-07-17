@@ -1,5 +1,9 @@
 package me.mourjo.chronic.field;
 
+
+/**
+ * Stores a Command
+ */
 public final class CommandField extends Field {
     public CommandField(String token) {
         super(token);

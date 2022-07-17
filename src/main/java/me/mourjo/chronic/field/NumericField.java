@@ -3,6 +3,9 @@ package me.mourjo.chronic.field;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Parent of all numeric types like Minute, Hour. Parses tokens based on the current field's bounds (min/max).
+ */
 public abstract sealed class NumericField extends Field permits DayOfMonthField, DayOfWeekField, HourField, MinuteField, MonthField {
     protected List<Integer> domain;
 

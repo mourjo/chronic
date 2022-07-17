@@ -10,6 +10,18 @@ import java.util.regex.Pattern;
 public class StringUtils {
     private static final Pattern atomSplitter = Pattern.compile("\\s+");
 
+    /**
+     * Tokenizes a string into strings for each of the cron string components:
+     * - minute
+     * - hour
+     * - day of month
+     * - month
+     * - day of week
+     * - command
+     *
+     * @param expression : Input string expression
+     * @return list of component strings
+     */
     public static List<String> tokenize(String expression) {
         var words = Arrays.stream(atomSplitter.split(expression.trim()))
                 .map(String::trim)
