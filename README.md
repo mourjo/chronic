@@ -5,7 +5,25 @@ Parse cron strings
 
 ## Usage
 
+Compile using:
+```bash
+mvn clean package
+```
 
+Run using:
+```bash
+java -jar target/chronic.jar "*/15 0 1,15 * 1-5 /usr/bin/find abcd"
+```
+
+Expected output for the above: 
+```
+Minute: 0,15,30,45
+Hour: 0
+Day of Month: 1,15
+Month: 1,2,3,4,5,6,7,8,9,10,11,12
+Day of Week: 1,2,3,4,5
+Command: /usr/bin/find abcd
+```
 
 ## License
 
