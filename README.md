@@ -1,11 +1,26 @@
 # chronic
 
-Parse cron strings
+Parse cron strings to show the possible values for minute, hour, day, month, day-of-week.
 
+For `*/15 0 1,15 * 1-5 /usr/bin/find`, the expected output is
+```
+Minute: 0,15,30,45
+Hour: 0
+Day of Month: 1,15
+Month: 1,2,3,4,5,6,7,8,9,10,11,12
+Day of Week: 1,2,3,4,5
+Command: /usr/bin/find
+```
+
+For an invalid cron string `*/15 0 1,15 * 1-5000 /usr/bin/find abcd`, the output is 
+```
+Invalid cron: */15 0 1,15 * 1-5000 /usr/bin/find abcd
+Unexpected atom: Out of range: 5000
+```
 
 ## Usage
 
-Compile using:
+Compile using (requires Maven to be installed):
 ```bash
 mvn clean package
 ```
@@ -15,7 +30,7 @@ Run using:
 java -jar target/chronic.jar "*/15 0 1,15 * 1-5 /usr/bin/find abcd"
 ```
 
-Expected output for the above: 
+The output for the above: 
 ```
 Minute: 0,15,30,45
 Hour: 0
@@ -24,6 +39,23 @@ Month: 1,2,3,4,5,6,7,8,9,10,11,12
 Day of Week: 1,2,3,4,5
 Command: /usr/bin/find abcd
 ```
+
+## Code structure
+- A cron expression is contained in the `Expression` which contains a sequence of `Feild`s.
+- A `Field` is responsible for understanding how to parse a cron string.
+- Subclasses like `CommandField` and `HourField` are responsible for parsing the command portion and the hour portion respectively.
+- A `Field` that is numeric, like `HourField` uses the `NumericParser` to convert the cron for that field into a sequence of numbers.
+- `NumericParser` checks syntax of a cron string for a field and generates a sequence of numbers according to the field's bounds.
+
+
+
+## Notes
+- Only minute, hour, day of month, month, and day of week are supported
+- `?` is not supported
+- Special time strings like `@yearly` are not supported
+- `,` is given the higest priority, so `/` when applied to a comma-separated string, the `/` applies only to the last item in the list, example: `1-5,11-15/5` will choose 1,2,3,4,5,15
+
+
 
 ## License
 
