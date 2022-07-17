@@ -42,5 +42,4 @@ class DayOfMonthTest {
         dom = new DayOfMonth("1-2,80-90");
         assertThrows(UnexpectedAtomException.class, dom::toString);
     }
-
 }
