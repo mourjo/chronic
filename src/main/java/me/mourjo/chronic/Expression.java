@@ -1,7 +1,7 @@
 package me.mourjo.chronic;
 
 import me.mourjo.chronic.field.*;
-import me.mourjo.chronic.utils.StringUtils;
+import me.mourjo.chronic.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

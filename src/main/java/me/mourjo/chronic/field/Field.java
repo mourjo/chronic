@@ -12,6 +12,7 @@ public abstract sealed class Field permits CommandField, NumericField {
     }
 
     public abstract void parse();
+
     public abstract String describe();
 
     @Override

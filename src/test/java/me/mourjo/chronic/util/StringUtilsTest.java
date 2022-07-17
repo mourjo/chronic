@@ -1,4 +1,4 @@
-package me.mourjo.chronic.utils;
+package me.mourjo.chronic.util;
 
 import org.junit.jupiter.api.Test;
 

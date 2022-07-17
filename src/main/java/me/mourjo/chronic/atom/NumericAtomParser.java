@@ -2,9 +2,9 @@ package me.mourjo.chronic.atom;
 
 import me.mourjo.chronic.exception.UnexpectedAtomException;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
