@@ -13,12 +13,12 @@ final public class Expression {
     Expression(String cron) {
         List<String> tokens = StringUtils.tokenize(cron);
         fields = new ArrayList<>();
-        fields.add(new Minute(tokens.get(0)));
-        fields.add(new Hour(tokens.get(1)));
-        fields.add(new DayOfMonth(tokens.get(2)));
-        fields.add(new Month(tokens.get(3)));
-        fields.add(new DayOfWeek(tokens.get(4)));
-        fields.add(new Command(tokens.get(5)));
+        fields.add(new MinuteField(tokens.get(0)));
+        fields.add(new HourField(tokens.get(1)));
+        fields.add(new DayOfMonthField(tokens.get(2)));
+        fields.add(new MonthField(tokens.get(3)));
+        fields.add(new DayOfWeekField(tokens.get(4)));
+        fields.add(new CommandField(tokens.get(5)));
     }
 
     public void parse() {

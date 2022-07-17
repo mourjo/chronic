@@ -1,46 +1,46 @@
 package me.mourjo.chronic.field;
 
-import me.mourjo.chronic.exceptions.UnexpectedAtomException;
+import me.mourjo.chronic.exception.UnexpectedAtomException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class DayOfMonthTest {
+class DayOfMonthFieldTest {
 
     @Test
     void parseValidDayOfMonthTest() {
-        Field dom = new DayOfMonth("1");
+        Field dom = new DayOfMonthField("1");
         assertEquals("1", dom.toString());
 
-        dom = new DayOfMonth("31");
+        dom = new DayOfMonthField("31");
         assertEquals("31", dom.toString());
 
-        dom = new DayOfMonth("*/15");
+        dom = new DayOfMonthField("*/15");
         assertEquals("15,30", dom.toString());
 
-        dom = new DayOfMonth("5-24/20");
+        dom = new DayOfMonthField("5-24/20");
         assertEquals("20", dom.toString());
 
-        dom = new Hour("1-20/15");
+        dom = new HourField("1-20/15");
         assertEquals("15", dom.toString());
 
-        dom = new Hour("*/150");
+        dom = new HourField("*/150");
         assertEquals("", dom.toString());
     }
 
     @Test
     void parseInValidDayOfMonthTest() {
-        Field dom = new DayOfMonth("88");
+        Field dom = new DayOfMonthField("88");
         assertThrows(UnexpectedAtomException.class, dom::toString);
 
-        dom = new DayOfMonth("1-100/2");
+        dom = new DayOfMonthField("1-100/2");
         assertThrows(UnexpectedAtomException.class, dom::toString);
 
-        dom = new DayOfMonth("0-4,10-31");
+        dom = new DayOfMonthField("0-4,10-31");
         assertThrows(UnexpectedAtomException.class, dom::toString);
 
-        dom = new DayOfMonth("1-2,80-90");
+        dom = new DayOfMonthField("1-2,80-90");
         assertThrows(UnexpectedAtomException.class, dom::toString);
     }
 }

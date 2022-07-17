@@ -3,10 +3,10 @@ package me.mourjo.chronic.field;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract sealed class NumberField extends Field permits DayOfMonth, DayOfWeek, Hour, Minute, Month {
+public abstract sealed class NumericField extends Field permits DayOfMonthField, DayOfWeekField, HourField, MinuteField, MonthField {
     protected List<Integer> domain;
 
-    public NumberField(String token) {
+    public NumericField(String token) {
         super(token);
     }
 

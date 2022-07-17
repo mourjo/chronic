@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CommandTest {
+class CommandFieldTest {
     @Test
     void parseCommandTest() {
-        Field c = new Command("/usr/bin/find");
+        Field c = new CommandField("/usr/bin/find");
         assertEquals("/usr/bin/find", c.toString());
     }
 }

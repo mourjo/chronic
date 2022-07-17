@@ -1,11 +1,11 @@
 package me.mourjo.chronic.field;
 
-import me.mourjo.chronic.atom.AtomParser;
+import me.mourjo.chronic.atom.NumericAtomParser;
 
-public abstract sealed class Field permits Command, NumberField {
+public abstract sealed class Field permits CommandField, NumericField {
     protected String token;
     protected boolean isParsed = false;
-    protected AtomParser parser;
+    protected NumericAtomParser parser;
 
     public Field(String token) {
         this.token = token;

@@ -1,6 +1,6 @@
 package me.mourjo.chronic.atom;
 
-import me.mourjo.chronic.exceptions.UnexpectedAtomException;
+import me.mourjo.chronic.exception.UnexpectedAtomException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,13 +8,13 @@ import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class AtomParser {
+public class NumericAtomParser {
     final int MIN, MAX;
     final Pattern SLASH = Pattern.compile("/");
     final Pattern COMMA = Pattern.compile(",");
     final Pattern DASH = Pattern.compile("-");
 
-    public AtomParser(int min, int max) {
+    public NumericAtomParser(int min, int max) {
         MIN = min;
         MAX = max;
     }

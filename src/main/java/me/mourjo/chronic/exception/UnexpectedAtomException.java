@@ -1,4 +1,4 @@
-package me.mourjo.chronic.exceptions;
+package me.mourjo.chronic.exception;
 
 public class UnexpectedAtomException extends RuntimeException {
     public UnexpectedAtomException(String message) {
