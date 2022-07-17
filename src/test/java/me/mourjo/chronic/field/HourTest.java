@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HourTest {
     @Test
     void parseValidHourTest() {
-        Hour h = new Hour("1");
+        Field h = new Hour("1");
         assertEquals("1", h.toString());
 
         h = new Hour("24");
@@ -29,7 +29,7 @@ class HourTest {
 
     @Test
     void parseInValidHourTest() {
-        Hour h = new Hour("88");
+        Field h = new Hour("88");
         assertThrows(UnexpectedAtomException.class, h::toString);
 
         h = new Hour("1-100/2");

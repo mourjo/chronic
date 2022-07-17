@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MinuteTest {
     @Test
     void parseValidMinuteTest() {
-        Minute m = new Minute("0");
+        Field m = new Minute("0");
         assertEquals("0", m.toString());
 
         m = new Minute("59");
@@ -30,7 +30,7 @@ class MinuteTest {
 
     @Test
     void parseInValidMinuteTest() {
-        Minute m = new Minute("88");
+        Field m = new Minute("88");
         assertThrows(UnexpectedAtomException.class, m::toString);
 
         m = new Minute("25-100/2");
