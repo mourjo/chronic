@@ -1,11 +1,11 @@
 package me.mourjo.chronic.field;
 
-import me.mourjo.chronic.atom.NumericAtomParser;
+import me.mourjo.chronic.parser.NumericParser;
 
 public final class MinuteField extends NumericField {
     public MinuteField(String token) {
         super(token);
-        parser = new NumericAtomParser(0, 59);
+        parser = new NumericParser(0, 59);
     }
 
     @Override

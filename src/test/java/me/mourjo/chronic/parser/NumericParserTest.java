@@ -1,4 +1,4 @@
-package me.mourjo.chronic.atom;
+package me.mourjo.chronic.parser;
 
 import me.mourjo.chronic.exception.UnexpectedAtomException;
 import org.junit.jupiter.api.Test;
@@ -8,34 +8,34 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class NumericAtomParserTest {
+class NumericParserTest {
 
     @Test
     void simpleIntegerTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(1, 100);
+        NumericParser p = new NumericParser(1, 100);
         assertEquals(List.of(13), p.parse("13"));
         assertEquals(List.of(1), p.parse("1"));
     }
 
     @Test
     void rangeTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(5, 100);
+        NumericParser p = new NumericParser(5, 100);
         assertEquals(List.of(13, 14, 15, 16, 17, 18, 19, 20), p.parse("13-20"));
         assertEquals(List.of(5, 6, 7), p.parse("5-7"));
 
-        p = new NumericAtomParser(5, 10);
+        p = new NumericParser(5, 10);
         assertEquals(List.of(5, 6, 7, 8, 9, 10), p.parse("5-9,5-8,5-7,5-6,5-10"));
     }
 
     @Test
     void starTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(5, 10);
+        NumericParser p = new NumericParser(5, 10);
         assertEquals(List.of(5, 6, 7, 8, 9, 10), p.parse("*"));
     }
 
     @Test
     void filterTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(5, 12);
+        NumericParser p = new NumericParser(5, 12);
         assertEquals(List.of(6, 8, 10, 12), p.parse("*/2"));
         assertEquals(List.of(9), p.parse("*/9"));
         assertEquals(List.of(), p.parse("*/13"));
@@ -44,7 +44,7 @@ class NumericAtomParserTest {
 
     @Test
     void selectTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(5, 12);
+        NumericParser p = new NumericParser(5, 12);
         assertEquals(List.of(7, 8), p.parse("7,8"));
         assertEquals(List.of(7, 8, 9), p.parse("7,8,9/3"));
         assertEquals(List.of(7, 8, 9, 12), p.parse("7,8,9-12/3"));
@@ -53,16 +53,16 @@ class NumericAtomParserTest {
 
     @Test
     void combinedTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(1, 10);
+        NumericParser p = new NumericParser(1, 10);
         assertEquals(List.of(3, 4, 5, 8), p.parse("3-5,8-10/4"));
 
-        p = new NumericAtomParser(0, 59);
+        p = new NumericParser(0, 59);
         assertEquals(List.of(25, 26, 27, 28, 29, 30, 31, 32, 33, 45), p.parse("25-33,43-59/15"));
     }
 
     @Test
     void invalidSyntaxCheckTest() throws UnexpectedAtomException {
-        NumericAtomParser p = new NumericAtomParser(5, 12);
+        NumericParser p = new NumericParser(5, 12);
         checkUnexpectedAtom(p, "101-700");
 
         checkUnexpectedAtom(p, "223");
@@ -96,7 +96,7 @@ class NumericAtomParserTest {
         checkUnexpectedAtom(p, "5-6, 8-10");
     }
 
-    private void checkUnexpectedAtom(NumericAtomParser p, String atom) {
+    private void checkUnexpectedAtom(NumericParser p, String atom) {
         assertThrows(UnexpectedAtomException.class, () -> p.parse(atom));
     }
 }

@@ -1,11 +1,11 @@
 package me.mourjo.chronic.field;
 
-import me.mourjo.chronic.atom.NumericAtomParser;
+import me.mourjo.chronic.parser.NumericParser;
 
 public final class DayOfMonthField extends NumericField {
     public DayOfMonthField(String token) {
         super(token);
-        parser = new NumericAtomParser(1, 31);
+        parser = new NumericParser(1, 31);
     }
 
     @Override

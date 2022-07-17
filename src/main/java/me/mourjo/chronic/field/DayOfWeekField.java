@@ -1,11 +1,11 @@
 package me.mourjo.chronic.field;
 
-import me.mourjo.chronic.atom.NumericAtomParser;
+import me.mourjo.chronic.parser.NumericParser;
 
 public final class DayOfWeekField extends NumericField {
     public DayOfWeekField(String token) {
         super(token);
-        parser = new NumericAtomParser(0, 6);
+        parser = new NumericParser(0, 6);
     }
 
     @Override
