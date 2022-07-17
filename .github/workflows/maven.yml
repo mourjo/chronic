@@ -24,3 +24,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Test Jar output
+      uses: GuillaumeFalourd/assert-command-line-output@v2
+      with:
+        command_line: "java -jar target/chronic.jar \"*/15 0 1,15 * 1-5 /usr/bin/find abcd\""
+        assert_file_path: src/main/resources/sample.txt
+        expected_result: PASSED
