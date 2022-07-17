@@ -1,8 +1,11 @@
 package me.mourjo.chronic;
 
+import me.mourjo.chronic.exception.IncorrectExpressionException;
+import me.mourjo.chronic.exception.UnexpectedAtomException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ExpressionTest {
 
@@ -58,6 +61,15 @@ class ExpressionTest {
                 Day of Week: 1,2,3
                 Command: /usr/bin/find
                 """, e.toString());
+    }
+
+    @Test
+    public void invalidExpressionTest() {
+        Expression e = new Expression("25-33 fd");
+        assertThrows(IncorrectExpressionException.class, e::toString);
+
+        e = new Expression("*/15 9 1,15 * 1-500 /usr/bin/find abcd okay");
+        assertThrows(UnexpectedAtomException.class, e::toString);
     }
 
 }
