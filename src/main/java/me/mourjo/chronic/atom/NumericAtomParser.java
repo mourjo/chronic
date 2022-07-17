@@ -29,18 +29,19 @@ public class NumericAtomParser {
     }
 
     private Stream<Integer> parseAtom(String atom) {
+        // operators in order of priority:
         if ("*".equals(atom)) {
             return IntStream.range(MIN, MAX + 1).boxed();
+        }
+
+        if (atom.contains(",")) {
+            return Arrays.stream(COMMA.split(atom)).flatMap(this::parseAtom).map(this::validateRange);
         }
 
         if (atom.contains("/")) {
             String[] parts = SLASH.split(atom);
             int div = Integer.parseInt(parts[1]);
             return parseAtom(parts[0]).filter(candidate -> candidate % div == 0).map(this::validateRange);
-        }
-
-        if (atom.contains(",")) {
-            return Arrays.stream(COMMA.split(atom)).flatMap(this::parseAtom).map(this::validateRange);
         }
 
         if (atom.contains("-")) {

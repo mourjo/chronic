@@ -21,8 +21,8 @@ class MinuteFieldTest {
         m = new MinuteField("25-33/15");
         assertEquals("30", m.toString());
 
-        m = new MinuteField("25-33,40-59/15");
-        assertEquals("30,45", m.toString());
+        m = new MinuteField("25-26,40-59/15");
+        assertEquals("25,26,45", m.toString());
 
         m = new MinuteField("*/2500");
         assertEquals("0", m.toString());

@@ -46,9 +46,18 @@ class NumericAtomParserTest {
     void selectTest() throws UnexpectedAtomException {
         NumericAtomParser p = new NumericAtomParser(5, 12);
         assertEquals(List.of(7, 8), p.parse("7,8"));
-        assertEquals(List.of(9), p.parse("7,8,9/3"));
-        assertEquals(List.of(9, 12), p.parse("7,8,9-12/3"));
-        assertEquals(List.of(), p.parse("5-7,9-11/4"));
+        assertEquals(List.of(7,8,9), p.parse("7,8,9/3"));
+        assertEquals(List.of(7,8,9, 12), p.parse("7,8,9-12/3"));
+        assertEquals(List.of(5,6,7), p.parse("5-7,9-11/4"));
+    }
+
+    @Test
+    void combinedTest() throws UnexpectedAtomException {
+        NumericAtomParser p = new NumericAtomParser(1, 10);
+        assertEquals(List.of(3,4,5,8), p.parse("3-5,8-10/4"));
+
+        p = new NumericAtomParser(0, 59);
+        assertEquals(List.of(25,26,27,28,29,30,31,32,33,45), p.parse("25-33,43-59/15"));
     }
 
     @Test
