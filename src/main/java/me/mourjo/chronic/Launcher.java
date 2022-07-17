@@ -1,7 +1,6 @@
 package me.mourjo.chronic;
 
-import me.mourjo.chronic.exception.IncorrectExpressionException;
-import me.mourjo.chronic.exception.UnexpectedAtomException;
+import me.mourjo.chronic.exception.ChronicException;
 
 import java.util.Arrays;
 
@@ -12,9 +11,9 @@ public class Launcher {
         }
 
         try {
-            Expression e = new Expression(args[0]);
-            System.out.println(e);
-        } catch (IncorrectExpressionException | UnexpectedAtomException e) {
+            Expression expression = new Expression(args[0]);
+            System.out.println(expression);
+        } catch (ChronicException e) {
             System.out.println("Invalid cron: " + args[0] + "\n" + e.getMessage());
         }
     }
