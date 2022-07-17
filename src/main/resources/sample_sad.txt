@@ -1,0 +1,2 @@
+Invalid cron: */15 9 1,15 * 1-500 /usr/bin/find abcd
+Unexpected atom: Out of range: 500
