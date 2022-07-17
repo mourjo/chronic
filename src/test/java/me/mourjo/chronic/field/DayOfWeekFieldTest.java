@@ -29,7 +29,7 @@ class DayOfWeekFieldTest {
         assertEquals("0,1,2,3,4,5,6", dow.toString());
 
         dow = new HourField("*/150");
-        assertEquals("", dow.toString());
+        assertEquals("0", dow.toString());
     }
 
     @Test

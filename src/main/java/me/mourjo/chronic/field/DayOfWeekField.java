@@ -7,4 +7,9 @@ public final class DayOfWeekField extends NumericField {
         super(token);
         parser = new NumericAtomParser(0, 6);
     }
+
+    @Override
+    public String describe() {
+        return "Day of Week";
+    }
 }

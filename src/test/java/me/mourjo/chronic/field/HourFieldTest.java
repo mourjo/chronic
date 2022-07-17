@@ -9,23 +9,23 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class HourFieldTest {
     @Test
     void parseValidHourTest() {
-        Field h = new HourField("1");
-        assertEquals("1", h.toString());
+        Field h = new HourField("0");
+        assertEquals("0", h.toString());
 
-        h = new HourField("24");
-        assertEquals("24", h.toString());
+        h = new HourField("23");
+        assertEquals("23", h.toString());
 
-        h = new HourField("*/15");
-        assertEquals("15", h.toString());
+        h = new HourField("*/12");
+        assertEquals("0,12", h.toString());
 
-        h = new HourField("5-24/20");
+        h = new HourField("5-23/20");
         assertEquals("20", h.toString());
 
         h = new HourField("1-20/15");
         assertEquals("15", h.toString());
 
         h = new HourField("*/150");
-        assertEquals("", h.toString());
+        assertEquals("0", h.toString());
     }
 
     @Test

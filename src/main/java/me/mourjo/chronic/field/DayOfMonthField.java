@@ -7,4 +7,9 @@ public final class DayOfMonthField extends NumericField {
         super(token);
         parser = new NumericAtomParser(1, 31);
     }
+
+    @Override
+    public String describe() {
+        return "Day of Month";
+    }
 }

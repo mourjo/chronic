@@ -10,7 +10,7 @@ final public class Expression {
     final private List<Field> fields;
     private boolean isParsed = false;
 
-    Expression(String cron) {
+    public Expression(String cron) {
         List<String> tokens = StringUtils.tokenize(cron);
         fields = new ArrayList<>();
         fields.add(new MinuteField(tokens.get(0)));
@@ -35,7 +35,9 @@ final public class Expression {
         parse();
         StringBuilder s = new StringBuilder();
         for (Field f : fields) {
-            s.append(f.toString()).append("\n");
+            s.append(f.describe());
+            s.append(": ");
+            s.append(f).append("\n");
         }
         return s.toString();
     }

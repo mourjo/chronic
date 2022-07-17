@@ -7,4 +7,9 @@ public final class MonthField extends NumericField {
         super(token);
         parser = new NumericAtomParser(1, 12);
     }
+
+    @Override
+    public String describe() {
+        return "Month";
+    }
 }

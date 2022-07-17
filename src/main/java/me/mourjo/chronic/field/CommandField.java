@@ -15,4 +15,9 @@ public final class CommandField extends Field {
         parse();
         return super.toString();
     }
+
+    @Override
+    public String describe() {
+        return "Command";
+    }
 }

@@ -7,4 +7,9 @@ public final class MinuteField extends NumericField {
         super(token);
         parser = new NumericAtomParser(0, 59);
     }
+
+    @Override
+    public String describe() {
+        return "Minute";
+    }
 }

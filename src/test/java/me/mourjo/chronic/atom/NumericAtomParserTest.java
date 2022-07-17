@@ -22,6 +22,9 @@ class NumericAtomParserTest {
         NumericAtomParser p = new NumericAtomParser(5, 100);
         assertEquals(List.of(13, 14, 15, 16, 17, 18, 19, 20), p.parse("13-20"));
         assertEquals(List.of(5, 6, 7), p.parse("5-7"));
+
+        p = new NumericAtomParser(5, 10);
+        assertEquals(List.of(5, 6, 7, 8, 9, 10), p.parse("5-9,5-8,5-7,5-6,5-10"));
     }
 
     @Test

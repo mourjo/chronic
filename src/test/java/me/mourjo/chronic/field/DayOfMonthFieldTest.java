@@ -26,7 +26,7 @@ class DayOfMonthFieldTest {
         assertEquals("15", dom.toString());
 
         dom = new HourField("*/150");
-        assertEquals("", dom.toString());
+        assertEquals("0", dom.toString());
     }
 
     @Test
