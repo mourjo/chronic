@@ -26,5 +26,14 @@ class StringUtilsTest {
                         "1-5",
                         "/usr/bin/find"),
                 StringUtils.tokenize("      */15     0     1,15      *      1-5     /usr/bin/find  "));
+
+        assertEquals(List.of(
+                        "*/15",
+                        "1-5",
+                        "1,15",
+                        "*",
+                        "1-5",
+                        "mvn clean -B package --file pom.xml"),
+                StringUtils.tokenize("*/15 1-5 1,15 * 1-5 mvn clean -B package --file pom.xml"));
     }
 }
