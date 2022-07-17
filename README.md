@@ -20,7 +20,11 @@ Unexpected atom: Out of range: 5000
 
 ## Usage
 
-Compile using (requires Maven to be installed):
+Pre-requisites:
+- Apache Maven 3.8.6+
+- Java: 18.0.1.1+
+
+Compile using:
 ```bash
 mvn clean package
 ```
@@ -47,15 +51,11 @@ Command: /usr/bin/find abcd
 - A `Field` that is numeric, like `HourField` uses the `NumericParser` to convert the cron for that field into a sequence of numbers.
 - `NumericParser` checks syntax of a cron string for a field and generates a sequence of numbers according to the field's bounds.
 
-
-
 ## Notes
 - Only minute, hour, day of month, month, and day of week are supported
 - `?` is not supported
 - Special time strings like `@yearly` are not supported
 - `,` is given the highest priority, so `/` when applied to a comma-separated string, the `/` applies only to the last item in the list, example: `1-5,11-15/5` will choose 1,2,3,4,5,15
-
-
 
 ## License
 
