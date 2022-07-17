@@ -13,4 +13,8 @@ public abstract sealed class Field permits Command, NumberField {
 
     public abstract void parse();
 
+    @Override
+    public String toString() {
+        return token;
+    }
 }
