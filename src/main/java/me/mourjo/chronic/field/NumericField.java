@@ -1,5 +1,7 @@
 package me.mourjo.chronic.field;
 
+import me.mourjo.chronic.parser.NumericParser;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,6 +10,7 @@ import java.util.stream.Collectors;
  */
 public abstract sealed class NumericField extends Field permits DayOfMonthField, DayOfWeekField, HourField, MinuteField, MonthField {
     protected List<Integer> domain;
+    protected NumericParser parser;
 
     public NumericField(String token) {
         super(token);
