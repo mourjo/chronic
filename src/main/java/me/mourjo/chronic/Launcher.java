@@ -1,5 +1,8 @@
 package me.mourjo.chronic;
 
+import me.mourjo.chronic.exception.IncorrectExpressionException;
+import me.mourjo.chronic.exception.UnexpectedAtomException;
+
 import java.util.Arrays;
 
 public class Launcher {
@@ -8,7 +11,11 @@ public class Launcher {
             throw new IllegalArgumentException("Only one argument is expected, got: " + Arrays.toString(args));
         }
 
-        Expression e = new Expression(args[0]);
-        System.out.println(e);
+        try {
+            Expression e = new Expression(args[0]);
+            System.out.println(e);
+        } catch (IncorrectExpressionException | UnexpectedAtomException e) {
+            System.out.println("Invalid cron: " + args[0] + "\n" + e.getMessage());
+        }
     }
 }
